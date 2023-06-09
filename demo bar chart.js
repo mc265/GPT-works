@@ -1,50 +1,51 @@
-// Sample data for the chart
-const data = [
-  { name: "A", value: 10 },
-  { name: "B", value: 20 },
-  { name: "C", value: 15 },
-  { name: "D", value: 25 },
-];
 
-// Set up the dimensions for the chart
-const width = 500;
-const height = 300;
+Highcharts.getJSON('https://raw.githubusercontent.com/mc265/export-of-forest-products/main/wood%20fuel%20export.json', function (data) {
+  
+  var formattedData = data.map(function (point) {
+    var date = new Date(point[0]);
+    return [Date.UTC(date.getFullYear(), 0, 1), point[1]];
+  });
 
-// Create an SVG container for the chart
-const svg = d3.select("body")
-  .append("svg")
-  .attr("width", width)
-  .attr("height", height);
+     
 
-// Create a scale for the x-axis
-const xScale = d3.scaleLinear()
-  .domain([0, d3.max(data, d => d.value)])
-  .range([0, width]);
+    // Create the chart
+    Highcharts.stockChart('container', {
+       
+     rangeSelector: {
+    //buttons: [ {
+     //   type: 'year',
+      //  count: 5,
+       // text: '5years'
+  //  },  {
+      //  type: 'year',
+      //  count: 10,
+     //   text: '10years'
+   // }, {
+    //    type: 'all',
+    //    text: 'All'
+  //  }]
+enabled:false
+},
 
-// Create a scale for the y-axis
-const yScale = d3.scaleBand()
-  .domain(data.map(d => d.name))
-  .range([0, height])
-  .padding(0.1);
-
-// Create and append the bars to the chart
-svg.selectAll("rect")
-  .data(data)
-  .enter()
-  .append("rect")
-  .attr("x", 0)
-  .attr("y", d => yScale(d.name))
-  .attr("width", d => xScale(d.value))
-  .attr("height", yScale.bandwidth())
-  .attr("fill", "steelblue");
-
-// Add labels to the bars
-svg.selectAll("text")
-  .data(data)
-  .enter()
-  .append("text")
-  .attr("x", d => xScale(d.value) + 10)
-  .attr("y", d => yScale(d.name) + yScale.bandwidth() / 2)
-  .attr("dy", "0.35em")
-  .text(d => d.value)
-  .attr("fill", "white");
+        title: {
+            text: 'Wood fuel export quantity'
+        },
+    
+      xAxis: {
+            type: 'datetime',
+         labels: {
+              format: '{value:%Y}'
+          
+            }
+         
+        },
+        series: [{
+            name: 'Wood fuel',
+            data: formattedData,
+            tooltip: {
+                valueDecimals: 0,
+               valueSuffix: 'm3'
+            }
+        }]
+    });
+});
