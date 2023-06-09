@@ -1,5 +1,5 @@
 
-Highcharts.getJSON('https://raw.githubusercontent.com/mc265/export-of-forest-products/main/wood%20fuel%20export.json', function (data) {
+Highcharts.getJSON('https://raw.githubusercontent.com/mc265/wood-pulp-export/main/wood%20pulp%20export.json', function (data) {
   
   var formattedData = data.map(function (point) {
     var date = new Date(point[0]);
@@ -28,7 +28,7 @@ enabled:false
 },
 
         title: {
-            text: 'Wood fuel export quantity'
+            text: 'Wood pulp export quantity'
         },
     
       xAxis: {
@@ -40,11 +40,11 @@ enabled:false
          
         },
         series: [{
-            name: 'Wood fuel',
+            name: 'pulp',
             data: formattedData,
             tooltip: {
                 valueDecimals: 0,
-               valueSuffix: 'm3'
+               valueSuffix: 't'
             }
         }]
     });
