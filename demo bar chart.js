@@ -44,7 +44,7 @@ enabled:false
             data: formattedData,
             tooltip: {
                 valueDecimals: 0,
-               valueSuffix: 't'
+               valueSuffix: 'tonnes'
             }
         }]
     });
