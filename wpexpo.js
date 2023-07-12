@@ -30,6 +30,10 @@ enabled:false
         title: {
             text: 'Export of key wood products over time. Press the name of any wood product at bottom to see it displayed.  Grab the edges of the bottom bar to shrink and expand the years displayed in the main graph'
         },
+       subtitle: {
+        text: 'Data Source: <a href="https://www.fao.org/faostat/en/#data/FO">FAOSTAT forestry</a>.',
+        align: 'left'
+    },
     
             xAxis: {
             type: 'date ',
