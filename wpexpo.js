@@ -28,7 +28,7 @@ enabled:false
 },
 
         title: {
-            text: 'Wood pulp export quantity'
+            text: 'Export of key wood products over time. Press the name of any wood product at bottom to see it displayed.  Grab the edges of the bottom bar to shrink and expand the years displayed in the main graph'
         },
     
             xAxis: {
