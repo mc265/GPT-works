@@ -27,13 +27,14 @@ Highcharts.getJSON('https://raw.githubusercontent.com/mc265/wood-pulp-export/mai
 enabled:false
 },
 
-        title: {
-            text: 'Export of key wood products over time. Press the name of any wood product at bottom to see it displayed.  Grab the edges of the bottom bar to shrink and expand the years displayed in the main graph'
+          title: {
+            text: 'Export of key wood products'
         },
-       subtitle: {
-        text: 'Data Source: <a href="https://www.fao.org/faostat/en/#data/FO">FAOSTAT forestry</a>.',
+        subtitle: {
+        text: 'Data Source: <a href="https://www.fao.org/faostat/en/#data/FO">FAOSTAT Forestry</a>.',
         align: 'left'
     },
+    
     
             xAxis: {
             type: 'date ',
