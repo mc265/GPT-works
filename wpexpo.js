@@ -28,7 +28,8 @@ enabled:false
 },
 
           title: {
-            text: 'Export of key wood products'
+            text: 'Forest Product Exports 1961-2021',
+	       align: 'left'
         },
         subtitle: {
         text: 'Data Source: <a href="https://www.fao.org/faostat/en/#data/FO">FAOSTAT Forestry</a>.',
